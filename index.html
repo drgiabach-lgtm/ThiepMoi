@@ -1,172 +1,185 @@
-!DOCTYPE html
-html lang=vi
-head
-    meta charset=UTF-8
-    meta name=viewport content=width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no
-    titleThiệp Cưới Gia Bách & Thiên Thảotitle
-    !-- Meta Tags cho chia sẻ MXH --
-    meta property=ogimage content=LINK_ANH_CUOI_DEP_NHAT_CUA_BAN
-    meta property=ogtitle content=Trân trọng mời bạn đến dự đám cưới của Gia Bách & Thiên Thảo
-    meta property=ogdescription content=Sự hiện diện của bạn là niềm vui của chúng tôi.
-    !-- Fonts --
-    link rel=preconnect href=httpsfonts.googleapis.com
-    link rel=preconnect href=httpsfonts.gstatic.com crossorigin
-    link href=httpsfonts.googleapis.comcss2family=Great+Vibes&family=Montserratwght@300;400&display=swap
-        rel=stylesheet
-    style
-         RESET 
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Thiệp Cưới Gia Bách & Thiên Thảo</title>
+
+    <!-- Meta Tags cho chia sẻ MXH -->
+    <meta property="og:image" content="LINK_ANH_CUOI_DEP_NHAT_CUA_BAN">
+    <meta property="og:title" content="Trân trọng mời bạn đến dự đám cưới của Gia Bách & Thiên Thảo">
+    <meta property="og:description" content="Sự hiện diện của bạn là niềm vui của chúng tôi.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+    <style>
+        /* RESET */
         body,
         html {
-            margin 0;
-            padding 0;
-            height 100%;
-            overflow hidden;
-            background-color #FAFAF9;
-             Màu giấy lụa 
-            font-family 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: #FAFAF9; /* Màu giấy lụa */
+            font-family: 'Montserrat', sans-serif;
         }
-         IFRAME FULLSCREEN 
+
+        /* IFRAME FULLSCREEN */
         iframe {
-            position fixed;
-            top 0;
-            left 0;
-            width 100%;
-            height 100%;
-            border none;
-            z-index 1;
-            opacity 0;
-             Ẩn lúc đầu 
-            transition opacity 1s ease-in;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            z-index: 1;
+            opacity: 0; /* Ẩn lúc đầu */
+            transition: opacity 1s ease-in;
         }
+
         iframe.loaded {
-            opacity 1;
-             Hiện ra nhẹ nhàng khi tải xong 
+            opacity: 1; /* Hiện ra nhẹ nhàng khi tải xong */
         }
-         LOADING SCREEN CONTAINER 
+
+        /* LOADING SCREEN CONTAINER */
         #loader {
-            position fixed;
-            top 0;
-            left 0;
-            width 100%;
-            height 100%;
-            background #FAFAF9;
-            z-index 9999;
-            display flex;
-            flex-direction column;
-            align-items center;
-            justify-content center;
-            transition opacity 0.8s ease-out, visibility 0.8s;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #FAFAF9;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease-out, visibility 0.8s;
         }
-         FADE OUT CLASS 
+
+        /* FADE OUT CLASS */
         #loader.hidden {
-            opacity 0;
-            visibility hidden;
+            opacity: 0;
+            visibility: hidden;
         }
-         HEART ANIMATION 
+
+        /* HEART ANIMATION */
         .heart-loader {
-            width 60px;
-            height 60px;
-            background-color #D48C8C;
-             Màu hồng đất sang trọng 
-            transform rotate(45deg);
-            animation heartbeat 1.2s infinite ease-in-out;
-            position relative;
-            margin-bottom 30px;
-            box-shadow 0 0 20px rgba(212, 140, 140, 0.4);
+            width: 60px;
+            height: 60px;
+            background-color: #D48C8C; /* Màu hồng đất sang trọng */
+            transform: rotate(45deg);
+            animation: heartbeat 1.2s infinite ease-in-out;
+            position: relative;
+            margin-bottom: 30px;
+            box-shadow: 0 0 20px rgba(212, 140, 140, 0.4);
         }
-        .heart-loaderbefore,
-        .heart-loaderafter {
-            content ;
-            width 60px;
-            height 60px;
-            background-color #D48C8C;
-            border-radius 50%;
-            position absolute;
+
+        .heart-loader::before,
+        .heart-loader::after {
+            content: "";
+            width: 60px;
+            height: 60px;
+            background-color: #D48C8C;
+            border-radius: 50%;
+            position: absolute;
         }
-        .heart-loaderbefore {
-            top -30px;
-            left 0;
+
+        .heart-loader::before {
+            top: -30px;
+            left: 0;
         }
-        .heart-loaderafter {
-            top 0;
-            left -30px;
+
+        .heart-loader::after {
+            top: 0;
+            left: -30px;
         }
+
         @keyframes heartbeat {
-            0% {
-                transform scale(1) rotate(45deg);
-            }
-            15% {
-                transform scale(1.15) rotate(45deg);
-            }
-            30% {
-                transform scale(1) rotate(45deg);
-            }
-            45% {
-                transform scale(1.15) rotate(45deg);
-            }
-            100% {
-                transform scale(1) rotate(45deg);
-            }
+            0% { transform: scale(1) rotate(45deg); }
+            15% { transform: scale(1.15) rotate(45deg); }
+            30% { transform: scale(1) rotate(45deg); }
+            45% { transform: scale(1.15) rotate(45deg); }
+            100% { transform: scale(1) rotate(45deg); }
         }
-         TEXT STYLES 
+
+        /* TEXT STYLES */
         .loading-text {
-            color #7A3E3E;
-            font-family 'Great Vibes', cursive;
-            font-size 2.5rem;
-            margin 0;
-            opacity 0;
-            animation fadeInText 2s ease-out forwards;
+            color: #7A3E3E;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            margin: 0;
+            opacity: 0;
+            animation: fadeInText 2s ease-out forwards;
+            text-align: center;
         }
+
         .loading-sub {
-            color #8c7878;
-            font-size 0.9rem;
-            letter-spacing 3px;
-            margin-top 10px;
-            text-transform uppercase;
-            animation fadeInText 2s ease-out 0.5s forwards;
-            opacity 0;
+            color: #8c7878;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            margin-top: 10px;
+            text-transform: uppercase;
+            animation: fadeInText 2s ease-out 0.5s forwards;
+            opacity: 0;
+            text-align: center;
         }
+
         @keyframes fadeInText {
             to {
-                opacity 1;
-                transform translateY(0);
+                opacity: 1;
+                transform: translateY(0);
             }
         }
-    style
-head
-body
-    !-- LOADING SCREEN --
-    div id=loader
-        div class=heart-loaderdiv
-        h1 class=loading-textGia Bách & Thiên Thảoh1
-        p class=loading-subĐANG TẢI THIỆP MỜI...p
-    div
-    !-- MAIN APP IFRAME --
-    iframe id=weddingFrame
-        src=https://script.google.com/macros/s/AKfycbwfcWHwCREbbyx7TYyLsfhM4LO66-cBkSJTLQQCx8bsNhmB1xE8I5M3rMHB4F8BuvSV/exec
-        allow=autoplay; fullscreen onload=onIframeLoad()
-    iframe
-    script
-         1. CHUYỂN TIẾP THAM SỐ (Tên khách mời)
+    </style>
+</head>
+
+<body>
+
+    <!-- LOADING SCREEN -->
+    <div id="loader">
+        <div class="heart-loader"></div>
+        <h1 class="loading-text">Gia Bách & Thiên Thảo</h1>
+        <p class="loading-sub">ĐANG TẢI THIỆP MỜI...</p>
+    </div>
+
+    <!-- MAIN APP IFRAME -->
+    <iframe id="weddingFrame"
+        src="https://script.google.com/macros/s/AKfycbwfcWHwCREbbyx7TYyLsfhM4LO66-cBkSJTLQQCx8bsNhmB1xE8I5M3rMHB4F8BuvSV/exec"
+        allow="autoplay; fullscreen" 
+        onload="onIframeLoad()">
+    </iframe>
+
+    <script>
+        // 1. CHUYỂN TIẾP THAM SỐ (Tên khách mời)
+        // Lấy ?name=... từ URL của trang này và ném vào iframe
         (function () {
             var params = window.location.search;
             if (params) {
-                var iframe = document.getElementById(weddingFrame);
-                var separator = iframe.src.indexOf('')  -1  '&'  '';
+                var iframe = document.getElementById('weddingFrame');
+                // Kiểm tra xem src đã có tham số chưa để nối chuỗi đúng cách
+                var separator = iframe.src.indexOf('?') > -1 ? '&' : '?';
                 iframe.src = iframe.src + separator + params.substring(1);
             }
         })();
-         2. XỬ LÝ HIỆU ỨNG LOAD XONG
+
+        // 2. XỬ LÝ HIỆU ỨNG LOAD XONG
         function onIframeLoad() {
-             Đợi thêm 1 chút để bên trong render xong hẳn cho mượt
+            // Đợi thêm 1 chút để bên trong iframe render xong hẳn cho mượt
             setTimeout(function () {
                 var loader = document.getElementById('loader');
                 var iframe = document.getElementById('weddingFrame');
+                
                 if (loader) loader.classList.add('hidden');
                 if (iframe) iframe.classList.add('loaded');
-            }, 1500);  Delay 1.5s để người dùng kịp ngắm hiệu ứng đẹp
+            }, 1500); // Delay 1.5s để người dùng kịp ngắm hiệu ứng tim đập
         }
-         Fallback Nếu mạng quá chậm, tự tắt loader sau 8s
+
+        // Fallback: Nếu mạng quá chậm hoặc lỗi load iframe, tự tắt loader sau 8s để khách không bị treo
         setTimeout(function () {
             var loader = document.getElementById('loader');
             if (loader && !loader.classList.contains('hidden')) {
@@ -174,6 +187,7 @@ body
                 document.getElementById('weddingFrame').classList.add('loaded');
             }
         }, 8000);
-    script
-body
-html
+    </script>
+</body>
+
+</html>
