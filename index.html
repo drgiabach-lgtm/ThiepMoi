@@ -156,12 +156,11 @@
 
     <script>
         // 1. CHUYỂN TIẾP THAM SỐ (Tên khách mời)
-        // Lấy ?name=... từ URL của trang này và ném vào iframe
         (function () {
-            var params = window.location.search;
+            var params = window.location.search; // Lấy phần ?name=...
             if (params) {
                 var iframe = document.getElementById('weddingFrame');
-                // Kiểm tra xem src đã có tham số chưa để nối chuỗi đúng cách
+                // Kiểm tra xem src đã có tham số chưa để nối chuỗi đúng cách (? hoặc &)
                 var separator = iframe.src.indexOf('?') > -1 ? '&' : '?';
                 iframe.src = iframe.src + separator + params.substring(1);
             }
@@ -169,17 +168,17 @@
 
         // 2. XỬ LÝ HIỆU ỨNG LOAD XONG
         function onIframeLoad() {
-            // Đợi thêm 1 chút để bên trong iframe render xong hẳn cho mượt
+            // Đợi thêm 1.5 giây sau khi tải xong để hiệu ứng mượt mà
             setTimeout(function () {
                 var loader = document.getElementById('loader');
                 var iframe = document.getElementById('weddingFrame');
                 
                 if (loader) loader.classList.add('hidden');
                 if (iframe) iframe.classList.add('loaded');
-            }, 1500); // Delay 1.5s để người dùng kịp ngắm hiệu ứng tim đập
+            }, 1500);
         }
 
-        // Fallback: Nếu mạng quá chậm hoặc lỗi load iframe, tự tắt loader sau 8s để khách không bị treo
+        // Fallback: Tự động tắt loading sau 8s phòng trường hợp mạng quá chậm
         setTimeout(function () {
             var loader = document.getElementById('loader');
             if (loader && !loader.classList.contains('hidden')) {
